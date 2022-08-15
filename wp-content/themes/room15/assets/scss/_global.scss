@@ -1,0 +1,181 @@
+html {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  scroll-margin-top: 70px;
+}
+
+ul,
+ol {
+  padding: 0;
+}
+body {
+  @include font($regular, $size-16, $lh-24);
+  font-family: $main-family;
+  color: $font-color-first;
+  font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.list-style {
+  list-style: none;
+
+  li {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &::before {
+      display: block;
+      margin-right: 8px;
+      content: '';
+      height: 12px;
+      width: 12px;
+      border: 1px solid $font-color-secondary;
+      transform: skewX(-10deg);
+    }
+  }
+
+}
+
+picture {
+  display: block;
+  max-height: 100%;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  -webkit-appearance: none;
+  font: inherit;
+  padding: 0;
+  border: none;
+  background-color:transparent;
+}
+
+p:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 576px) {
+  p:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+a {
+  color: inherit;
+  font: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.container {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @media(max-width: 768px) {
+    max-width: 1180px;
+    padding: 0 10px;
+  }
+}
+.container__fluid {
+  max-width: 1370px;
+  margin: 0 auto;
+  padding: 0 15px;
+  @media(max-width: 768px) {
+    max-width: 1380px;
+    padding: 0 10px;
+  }
+}
+.btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  color: $font-color-first;
+  &:hover {
+    &:before {
+      background-color:$bakground-hover-btn;
+    }
+  }
+  &:before {
+    content: '';
+    transform: skew(-10deg);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $bakground-color-first;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: .25s;
+  }
+}
+
+.logo {
+  max-width: 238px;
+  width: 100%;
+  height: 50px;
+  @media(max-width: 768px) {
+    height: 40px;
+    max-width: 190px;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  &__item {
+    &:not(:first-child) {
+      margin-left: 25px;
+    }
+  }
+  &__icon {
+    fill: $font-color-ternary;
+    width: 100%;
+    height: 24px;
+    transition: fill 0.3s;
+    &:hover {
+      fill: $font-color-secondary;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+$regular: 400;
+$bold: 700;
+
+$font-color-first:#fff;
+$font-color-secondary:#F83033;
+$font-color-ternary:#000;
+
+$bakground-color-first:#F83033;
+$bakground-color-secondary:#181818;
+$bakground-hover-btn:#EB2D30;
+
+$size-40:40px;
+$size-35:35px;
+$size-30:30px;
+$size-25:25px;
+$size-24:24px;
+$size-20:20px;
+$size-18:18px;
+$size-16:16px;
+$size-14:14px;
+
+$lh-60:60px;
+$lh-50:50px;
+$lh-45:45px;
+$lh-40:40px;
+$lh-38:38px;
+$lh-32:32px;
+$lh-30:30px;
+$lh-28:28px;
+$lh-26:26px;
+$lh-24:24px;
+$lh-22:22px;
+$lh-20:20px;
+$lh-18:18px;
+
+$main-family: 'Mulish',
+sans-serif;
+$heading-family: 'SFPro',
+sans-serif;
+
+@mixin font($weight, $size, $lh) {
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lh;
+}

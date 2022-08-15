@@ -134,20 +134,6 @@ function room15_widgets_init() {
 }
 add_action( 'widgets_init', 'room15_widgets_init' );
 
-/**
- * Enqueue scripts and styles.
- */
-function room15_scripts() {
-	wp_enqueue_style( 'room15-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'room15-style', 'rtl', 'replace' );
-
-	wp_enqueue_script( 'room15-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
-}
-add_action( 'wp_enqueue_scripts', 'room15_scripts' );
 
 /**
  * Implement the Custom Header feature.
