@@ -16,6 +16,7 @@ ul,
 ol {
   padding: 0;
 }
+
 body {
   @include font($regular, $size-16, $lh-24);
   font-family: $main-family;
@@ -49,12 +50,13 @@ ol {
 
   li {
     position: relative;
-    display: flex;
-    align-items: center;
+    padding-left: 20px;
 
     &::before {
+      position: absolute;
+      top: 6px;
+      left: 0;
       display: block;
-      margin-right: 8px;
       content: '';
       height: 12px;
       width: 12px;
@@ -84,6 +86,7 @@ select {
   padding: 0;
   border: none;
   background-color:transparent;
+  outline: transparent;
 }
 
 p:not(:last-child) {
@@ -102,34 +105,35 @@ a {
   text-decoration: none;
   display: inline-block;
 }
-
+main {
+  height: calc(100vh - 50px);
+}
 .container {
-  max-width: 1170px;
+  max-width: 1240px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
   @media(max-width: 768px) {
-    max-width: 1180px;
-    padding: 0 10px;
+    max-width: 1230px;
+    padding: 0 15px;
   }
 }
 .container__fluid {
-  max-width: 1370px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 20px;
   @media(max-width: 768px) {
-    max-width: 1380px;
-    padding: 0 10px;
+    max-width: 1430px;
+    padding: 0 15px;
   }
 }
 .btn {
-  display: flex;
-  align-items: center;
   cursor: pointer;
   position: relative;
   color: $font-color-first;
   &:hover {
     &:before {
-      background-color:$bakground-hover-btn;
+      box-shadow: none;
+      background-color:$background-hover-btn;
     }
   }
   &:before {
@@ -138,11 +142,12 @@ a {
     position: absolute;
     height: 100%;
     width: 100%;
-    background-color: $bakground-color-first;
+    background-color: $background-color-first;
     left: 0;
     top: 0;
     z-index: -1;
     transition: .25s;
+    border-radius: 3px;
   }
 }
 
@@ -165,6 +170,7 @@ a {
   display: flex;
   align-items: center;
   &__item {
+    height: 25px;
     &:not(:first-child) {
       margin-left: 25px;
     }
@@ -177,5 +183,46 @@ a {
     &:hover {
       fill: $font-color-secondary;
     }
+  }
+}
+.background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #152040;
+  z-index: -10;
+  object-fit: cover;
+}
+.title-style {
+  display: flex;
+  align-items: center;
+  @include font($bold,$size-35,$lh-45);
+  font-family: $heading-family;
+  margin: 0 auto 30px;
+  max-width: fit-content;
+  position: relative;
+  @media (max-width: 768px) {
+    @include font($bold,$size-24,$lh-34);
+    margin-bottom: 20px;
+  }
+  &::before {
+    display: block;
+    content: '';
+    height: 45px;
+    width: 1px;
+    background-color: $background-color-first;
+    transform: rotate(10deg);
+    margin-right: 40px;
+  }
+  &::after {
+    display: block;
+    content: '';
+    height: 45px;
+    width: 1px;
+    background-color: $background-color-first;
+    transform: rotate(10deg);
+    margin-left: 40px;
   }
 }

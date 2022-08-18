@@ -1,6 +1,10 @@
 .header {
+  position: relative;
+  z-index: 1;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
   color: $font-color-ternary;
+  background-color: #fff;
+
   @media(max-width: 768px) {
     .social {
       display: none;
@@ -26,7 +30,7 @@
       display: none;
     }
     @media(max-width: 1200px) {
-      position: absolute;
+      position: fixed;
       top: 50px;
       right: 0;
       background: url("../img/menu-bg.jpg") no-repeat center center / cover;
@@ -36,6 +40,7 @@
       z-index: 999;
       transform: translateX(100%);
       transition: transform 0.3s;
+      overflow-x: hidden;
       &.open {
        transform: translateX(0);
       }
@@ -88,7 +93,7 @@
           color: $font-color-first;
         }
         a::before  {
-          background-color: $bakground-color-first;
+          background-color: $background-color-first;
         }
       }
     }
@@ -137,6 +142,9 @@
     }
   &__modal {
     padding: 13px 21px;
+    &::before {
+      border-radius: 0;
+    }
     @media(max-width: 1200px) {
       padding: 13px 10px;
     }
@@ -204,6 +212,9 @@
       padding: 40px;
     }
   }
+  nav > ul > li:nth-child(2) > .sub-menu > li > a::after{
+    display: none;
+  }
   nav > ul > li:nth-child(2):hover > .sub-menu {
     opacity: 1;
     visibility: visible;
@@ -212,7 +223,7 @@
   nav > ul > li:nth-child(2) > .sub-menu > li > .sub-menu {
     @media(max-width: 1200px) {
       width: 400px;
-      margin-left: 40px;
+      padding-left: 40px;
     }
   }
 
@@ -248,9 +259,11 @@
       }
     }
   }
+
   nav > ul > li:nth-child(2) > a {
     pointer-events: none;
     padding-right: 28px;
+
     @media(max-width: 1200px) {
       max-width: fit-content;
       padding-right: 20px;
@@ -273,6 +286,7 @@
         right: 0;
       }
     }
+
     @media(min-width: 1201px) {
       &:hover{
         &:after {
@@ -331,9 +345,10 @@
     &:hover {
       color: $font-color-secondary;
       &:after {
-        background-color: $bakground-color-first;
+        background-color: $background-color-first;
       }
     }
+
     &:after {
       position: absolute;
       left: 0;
@@ -363,10 +378,11 @@
     width: 100%;
     margin: 0 auto;
   }
+
   &__burger {
     display: none;
     width: 35px;
-    @media(max-width: 768px) {
+    @media(max-width: 1200px) {
       display: block;
     }
     &.open {
@@ -380,6 +396,7 @@
       }
     }
   }
+
   &__burger-icon {
     width: 35px;
     height: 22px;
